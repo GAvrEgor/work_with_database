@@ -14,8 +14,7 @@ class Command(BaseCommand):
             phones = list(csv.DictReader(file, delimiter=';'))
 
         for phone in phones:
-            # TODO: Добавьте сохранение модели
-            id, name, image, price, release_date, lte_exists, slug = phone.values()
+            id, name, image, price, release_date, lte_exists = phone.values()
             slug = slugify(name)
             phone = Phone(id=id, name=name, image=image, price=price, release_date=release_date,
                           lte_exists=lte_exists, slug=slug)
